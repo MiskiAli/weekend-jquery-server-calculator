@@ -20,11 +20,13 @@ function submitclicks(){
     const numInputs =  {
         numOneInput: Number($('#numInputOne').val()),
         numTwoInput: Number($('#numInputTwo').val()),
+        // operator: numOperator
     }
     console.log(numInputs);
     $.ajax({
         method: 'POST', 
-        url: '/calc'
+        url: '/calc',
+        data: numInputs
         // "POST"-ing data that is from the client to the server.
     }).then(function (response){
         console.log(response)
@@ -63,8 +65,8 @@ function render(calculations){
     // empty - gets rid of dupes
     $('ul').empty();
     //append to dom
-for (let obj of calculations){
-    $('ul').append(`<li>${obj.numOneInput} --- ${obj.numTwoInput}</li>`)
+for (let calcObject of calculations){
+    $('ul').append(`<li>${calcObject.numOneInput} --- ${calcObject.numTwoInput}</li>`)
 }
 
 }

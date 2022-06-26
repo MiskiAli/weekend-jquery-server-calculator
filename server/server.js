@@ -36,29 +36,29 @@ app.post('/calc', (req, res) =>{
     })
 const calculations = [];
 
-// // // adding function
-// function addNum (numOne,numTwo){
-//     return numOne + numTwo;
-// }
-// // addNum() //- to call it 
+// adding function
+function addNum (numOne,numTwo){
+    return numOne + numTwo;
+}
+// addNum() //- to call it 
 
 
-// // subtracting function
-// function subNum (numOne,numTwo){
-//     return numOne - numTwo;
-// }
-// // subNum()
+// subtracting function
+function subNum (numOne,numTwo){
+    return numOne - numTwo;
+}
+// subNum()
 
 
-// // multiplying function
-// function multiplyNum (numOne,numTwo){
-//     return numOne * numTwo;
-// }
-// // multiplyNum();
+// multiplying function
+function multiplyNum (numOne,numTwo){
+    return numOne * numTwo;
+}
+// multiplyNum();
 
 
-// // dividing function
-// function divideNum (numOne,numTwo){
-//     return numOne / numTwo;
-// }
-// // divideNum();
+// dividing function
+function divideNum (numOne,numTwo){
+    return numOne / numTwo;
+}
+// divideNum();
