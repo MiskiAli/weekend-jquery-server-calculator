@@ -20,10 +20,10 @@ app.listen(PORT, function(){
 
 
 // localhost:5000/calc get and send requests
-// app.get('/calc', function(req,res) {
-//     console.log('in get calc');
-//     res.send(calculations);
-// })
+app.get('/calc', function(req,res) {
+    console.log('in get calc');
+    res.send(calculations);
+})
 
 app.post('/calc', (req, res) =>{
     // well where is the quote..?
@@ -36,29 +36,29 @@ app.post('/calc', (req, res) =>{
     })
 const calculations = [];
 
-// // adding function
-function addNum (numOne,numTwo){
-    return numOne + numTwo;
-}
-// addNum() //- to call it 
+// // // adding function
+// function addNum (numOne,numTwo){
+//     return numOne + numTwo;
+// }
+// // addNum() //- to call it 
 
 
-// subtracting function
-function subNum (numOne,numTwo){
-    return numOne - numTwo;
-}
-// subNum()
+// // subtracting function
+// function subNum (numOne,numTwo){
+//     return numOne - numTwo;
+// }
+// // subNum()
 
 
-// multiplying function
-function multiplyNum (numOne,numTwo){
-    return numOne * numTwo;
-}
-// multiplyNum();
+// // multiplying function
+// function multiplyNum (numOne,numTwo){
+//     return numOne * numTwo;
+// }
+// // multiplyNum();
 
 
-// dividing function
-function divideNum (numOne,numTwo){
-    return numOne / numTwo;
-}
-// divideNum();
+// // dividing function
+// function divideNum (numOne,numTwo){
+//     return numOne / numTwo;
+// }
+// // divideNum();
