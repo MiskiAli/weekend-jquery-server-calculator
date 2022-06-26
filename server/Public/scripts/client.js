@@ -15,8 +15,9 @@ $('.numOperator').on('click', inputsToServer);
 
 function submitclicks(){
     // collect inputs and append to DOM
-    let numOneInput = $('#numInputOne').val();
-    let numTwoInput = $('#numInputTwo').val();
+    // let numOneInput = $('#numInputOne').val();
+    // let numTwoInput = $('#numInputTwo').val();
+    // let operator = $('.numOperator');
     const numInputs =  {
         numOneInput: Number($('#numInputOne').val()),
         numTwoInput: Number($('#numInputTwo').val()),
@@ -69,7 +70,7 @@ for (let calcObject of calculations){
     let mathAnswer = Math.round(`${calcObject.mathAnswer}`)
     $('.mathAnswer').empty();
     $('.mathAnswer').append(mathAnswer)
-    $('ul').append(`<li>${calcObject.numOneInput}  ${calcObject.operator}  ${calcObject.numTwoInput}</li>`)
+    $('ul').append(`<li>${calcObject.numOneInput}  ${calcObject.operator}  ${calcObject.numTwoInput} = ${calcObject.mathAnswer}</li>`)
 }
 
 }
@@ -79,6 +80,7 @@ function clearClick(){
 }
 
 function inputsToServer(){
+    // operator
     numOperator = $(this).text()
 }
 
@@ -86,7 +88,4 @@ function inputsToServer(){
 
 
 
-// function inputsToServer(){
-//     // ajax !!
-    
-// 
+

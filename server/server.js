@@ -20,49 +20,79 @@ app.listen(PORT, function(){
 
 
 // localhost:5000/calc get and post requests
-app.get('/calc', function(req,res) {
-    console.log('in get calc');
-    res.send(calculations);
-})
+
 
 app.post('/calc', (req, res) =>{
     // well where is the quote..?
     console.log('POST /calc', req.body);
-    // save our quote 
-    calculations.push(req.body)
+    // push to array
+    // calculations.push(req.body)
+    numInputs=req.body
     // send back response
     res.sendStatus(201);
-    
+    myEquation();
     })
+
+    app.get('/calc', (req,res) =>{
+        console.log('in get calc');
+        res.send(calculations);
+    })
+
 const calculations = [];
 
-function myEquation(calculations){
-for (let i = 0; i < calculations.length; i++) {
-    console.log(calculations[i]);}
-// adding function
-function addNum (numOne,numTwo){
-    return numOne + numTwo;
+let numInputs;
+let answer;
+
+function myEquation(){
+    switch (numInputs.operator) {
+        case '+':
+            answer = Number(numInputs.numOneInput) + Number(numInputs.numTwoInput)
+            break;
+            case '-':
+                answer = Number(numInputs.numOneInput) - Number(numInputs.numTwoInput)
+                break;
+                case '*':
+            answer = Number(numInputs.numOneInput) * Number(numInputs.numTwoInput)
+            break;
+            case '/':
+            answer = Number(numInputs.numOneInput) / Number(numInputs.numTwoInput)
+            break;
+    }
+
+let finalEval={
+    numOneInput: numInputs.numOneInput,
+    operator: numInputs.operator,
+    numTwoInput: numInputs.numTwoInput,
+    mathAnswer: answer
 }
-// addNum() //- to call it 
-
-
-// subtracting function
-function subNum (numOne,numTwo){
-    return numOne - numTwo;
+calculations.push(finalEval)
+    console.log(calculations)
 }
-// subNum()
+
+// for (let i = 0; i < calculations.length; i++) {
+//     console.log(calculations[i]);}
+// // adding function
+// function addNum (numOne,numTwo){
+//     return numOne + numTwo;
+// }
 
 
-// multiplying function
-function multiplyNum (numOne,numTwo){
-    return numOne * numTwo;
-}
-// multiplyNum();
+// // subtracting function
+// function subNum (numOne,numTwo){
+//     return numOne - numTwo;
+// }
 
 
-// dividing function
-function divideNum (numOne,numTwo){
-    return numOne / numTwo;
-}
-// divideNum();
-}
+// // multiplying function
+// function multiplyNum (numOne,numTwo){
+//     return numOne * numTwo;
+// }
+
+
+// // dividing function
+// function divideNum (numOne,numTwo){
+//     return numOne / numTwo;
+// }
+
+
+
