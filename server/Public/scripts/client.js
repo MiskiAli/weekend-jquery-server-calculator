@@ -7,16 +7,12 @@ console.log('ready!');
 $('#submitButton').on('click', submitclicks);
 $('#clearButton').on('click', clearClick);
 $('.numOperator').on('click', inputsToServer);
-// $('#subtract').on('click', inputsToServer);
-// $('multiply').on('click', inputsToServer);
-// $('divide').on('click', inputsToServer);
+
 }
 
 
 function submitclicks(){
     // collect inputs and append to DOM
-    // let numOneInput = $('#numInputOne').val();
-    // let numTwoInput = $('#numInputTwo').val();
     // let operator = $('.numOperator');
     const numInputs =  {
         numOneInput: Number($('#numInputOne').val()),
@@ -54,7 +50,7 @@ function showResults (){
         render(response);
 
     }).catch(function(error){
-        // basically catches errors like 404, 500 etc.
+        // catches errors.
         console.log(error);
         alert('error in get /calc')
     })
