@@ -5,8 +5,8 @@ console.log('ready!');
 
 // add click listeners here
 $('#submitButton').on('click', submitclicks);
-// $('#clearButton').on('click', clearClick);
-// $('#add').on('click', inputsToServer);
+$('#clearButton').on('click', clearClick);
+$('.numOperator').on('click', inputsToServer);
 // $('#subtract').on('click', inputsToServer);
 // $('multiply').on('click', inputsToServer);
 // $('divide').on('click', inputsToServer);
@@ -15,12 +15,12 @@ $('#submitButton').on('click', submitclicks);
 
 function submitclicks(){
     // collect inputs and append to DOM
-    // let numOneInput = $('#numInputOne').val();
-    // let numTwoInput = $('#numInputTwo').val();
+    let numOneInput = $('#numInputOne').val();
+    let numTwoInput = $('#numInputTwo').val();
     const numInputs =  {
         numOneInput: Number($('#numInputOne').val()),
         numTwoInput: Number($('#numInputTwo').val()),
-        // operator: numOperator
+        operator: numOperator
     }
     console.log(numInputs);
     $.ajax({
@@ -66,20 +66,25 @@ function render(calculations){
     $('ul').empty();
     //append to dom
 for (let calcObject of calculations){
-    $('ul').append(`<li>${calcObject.numOneInput} --- ${calcObject.numTwoInput}</li>`)
+    let mathAnswer = Math.round(`${calcObject.mathAnswer}`)
+    $('.mathAnswer').empty();
+    $('.mathAnswer').append(mathAnswer)
+    $('ul').append(`<li>${calcObject.numOneInput}  ${calcObject.operator}  ${calcObject.numTwoInput}</li>`)
 }
 
 }
+function clearClick(){
+    $('.mathAnswer').empty();
+    $('input').val('')
+}
+
+function inputsToServer(){
+    numOperator = $(this).text()
+}
 
 
 
 
-
-
-// function clearClick(){
-//     // deletes inputs..
-
-// }
 
 // function inputsToServer(){
 //     // ajax !!

@@ -19,7 +19,7 @@ app.listen(PORT, function(){
 
 
 
-// localhost:5000/calc get and send requests
+// localhost:5000/calc get and post requests
 app.get('/calc', function(req,res) {
     console.log('in get calc');
     res.send(calculations);
@@ -36,6 +36,9 @@ app.post('/calc', (req, res) =>{
     })
 const calculations = [];
 
+function myEquation(calculations){
+for (let i = 0; i < calculations.length; i++) {
+    console.log(calculations[i]);}
 // adding function
 function addNum (numOne,numTwo){
     return numOne + numTwo;
@@ -62,3 +65,4 @@ function divideNum (numOne,numTwo){
     return numOne / numTwo;
 }
 // divideNum();
+}
